@@ -32,37 +32,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experience Section - Phase 5 Complete */}
-        <section id="experience" className="min-h-screen bg-gradient-to-b from-gradient-1 via-teal-primary to-gradient-2 text-white flex items-center justify-center py-16 lg:py-20 relative">
-          <div className="w-full">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Experience</h2>
-              <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
-              <p className="text-lg lg:text-xl opacity-90 max-w-2xl mx-auto px-4">
-                My professional journey and the impact I've made along the way
-              </p>
-            </div>
-            <ExperienceSection />
-          </div>
-        </section>
-
-        {/* Skills Section - Phase 6 Complete */}
-        <section id="skills" className="min-h-screen bg-gradient-to-b from-gradient-2 via-teal-secondary to-gradient-3 text-white flex items-center justify-center py-16 lg:py-20 relative">
-          <div className="w-full">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-dark-blue">Skills</h2>
-              <div className="w-24 h-1 bg-dark-blue mx-auto rounded-full mb-4"></div>
-              <p className="text-lg lg:text-xl text-dark-blue opacity-90 max-w-2xl mx-auto px-4">
-                The technologies and tools I use to bring ideas to life
-              </p>
-            </div>
-            <SkillsSection />
-          </div>
-        </section>
-
         {/* Projects Section - Phase 7 Complete */}
         <section id="projects" className="min-h-screen text-white flex items-center justify-center py-16 lg:py-20 relative"
-                 style={{background: 'linear-gradient(to bottom, #a5e8df 0%, #6db8c5 30%, #124757 70%, #124757 100%)'}}>
+                 style={{background: 'linear-gradient(to bottom, #1a5c6b 0%, #208599 30%, #6db8c5 70%, #8ae4da 100%)'}}>
           <div className="w-full">
             <div className="text-center mb-12">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Projects</h2>
@@ -75,9 +47,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Skills Section - Phase 6 Complete */}
+        <section id="skills" className="min-h-screen bg-gradient-to-b from-teal-secondary via-gradient-3 to-gradient-2 text-white flex items-center justify-center py-16 lg:py-20 relative">
+          <div className="w-full">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-dark-blue">Skills</h2>
+              <div className="w-24 h-1 bg-dark-blue mx-auto rounded-full mb-4"></div>
+              <p className="text-lg lg:text-xl text-dark-blue opacity-90 max-w-2xl mx-auto px-4">
+                The technologies and tools I use to bring ideas to life
+              </p>
+            </div>
+            <SkillsSection />
+          </div>
+        </section>
+
+        {/* Experience Section - Phase 5 Complete */}
+        <section id="experience" className="min-h-screen bg-gradient-to-b from-gradient-2 via-teal-primary to-gradient-1 text-white flex items-center justify-center py-16 lg:py-20 relative">
+          <div className="w-full">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Experience</h2>
+              <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
+              <p className="text-lg lg:text-xl opacity-90 max-w-2xl mx-auto px-4">
+                My professional journey and the impact I've made along the way
+              </p>
+            </div>
+            <ExperienceSection />
+          </div>
+        </section>
+
         {/* Contact Section - Placeholder for Phase 9 */}
         <section id="contact" className="min-h-screen text-white flex items-center justify-center px-6 relative"
-                 style={{background: 'linear-gradient(to bottom, #124757 0%, #1a5c6b 50%, #208599 100%)'}}>
+                 style={{background: 'linear-gradient(to bottom, #1a5c6b 0%, #124757 50%, #208599 100%)'}}>
           <div className="text-center max-w-4xl">
             <h2 className="text-5xl font-bold mb-6">Contact</h2>
             <p className="text-xl leading-relaxed mb-8">
