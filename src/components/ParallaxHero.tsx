@@ -39,33 +39,38 @@ export default function ParallaxHero() {
       
       const scrollY = window.scrollY
       
-      // Check for reduced motion preference
+      // Check for reduced motion preference and mobile devices
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const isMobile = window.innerWidth < 768 // Reduce parallax on mobile for performance
+      
       if (prefersReducedMotion) return
+      
+      // Reduce parallax intensity on mobile
+      const intensity = isMobile ? 0.3 : 1
 
-      // Apply parallax effects with GPU acceleration (translate3d)
+      // Apply parallax effects with GPU acceleration (translate3d) - reduced on mobile
       if (starsRef.current) {
-        starsRef.current.style.transform = `translate3d(${scrollY * 0.25}px, 0, 0)`
+        starsRef.current.style.transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
       }
       
       if (dragonRef.current) {
-        dragonRef.current.style.transform = `translate3d(0, ${scrollY * -1.25}px, 0)`
+        dragonRef.current.style.transform = `translate3d(0, ${scrollY * -1.25 * intensity}px, 0)`
       }
       
       if (castleRef.current) {
-        castleRef.current.style.transform = `translate3d(0, ${scrollY * 0.75}px, 0)`
+        castleRef.current.style.transform = `translate3d(0, ${scrollY * 0.75 * intensity}px, 0)`
       }
       
       if (mountainRef.current) {
-        mountainRef.current.style.transform = `translate3d(0, ${scrollY * 0}px, 0)`
+        mountainRef.current.style.transform = `translate3d(0, ${scrollY * 0 * intensity}px, 0)`
       }
       
       if (textRef.current) {
-        textRef.current.style.transform = `translate3d(${scrollY * 4}px, ${scrollY * 1.5}px, 0)`
+        textRef.current.style.transform = `translate3d(${scrollY * 4 * intensity}px, ${scrollY * 1.5 * intensity}px, 0)`
       }
       
       if (ctaRef.current) {
-        ctaRef.current.style.transform = `translate3d(0, ${scrollY * 1.5}px, 0)`
+        ctaRef.current.style.transform = `translate3d(0, ${scrollY * 1.5 * intensity}px, 0)`
       }
     }
 

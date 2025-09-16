@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import ParallaxHero from '@/components/ParallaxHero'
 import ScrollToTop from '@/components/ScrollToTop'
+import AboutSection from '@/components/AboutSection'
 
 export default function Home() {
   return (
@@ -15,22 +16,16 @@ export default function Home() {
         {/* Parallax Hero Section */}
         <ParallaxHero />
         
-        {/* About Section - Placeholder for Phase 4 */}
-        <section id="about" className="min-h-screen bg-gradient-to-b from-dark-blue via-dark-blue to-gradient-1 text-white flex items-center justify-center px-6 relative">
+        {/* About Section - Phase 4 Complete */}
+        <section id="about" className="min-h-screen bg-gradient-to-b from-dark-blue via-dark-blue to-gradient-1 text-white flex items-center justify-center py-16 lg:py-20 relative">
           {/* Top Gradient Overlay for seamless hero transition */}
           <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-transparent via-dark-blue/60 to-dark-blue z-10 pointer-events-none" />
-          <div className="text-center max-w-4xl relative z-20">
-            <h2 className="text-5xl font-bold mb-6">About Me</h2>
-            <p className="text-xl leading-relaxed mb-8">
-              Welcome to my portfolio! This is a placeholder section that will be filled with content in Phase 4.
-              The parallax hero above showcases the preserved fantasy imagery from your original site with smooth scroll effects.
-            </p>
-            <div className="text-sm opacity-75 space-y-1">
-              <p>✅ Phase 1: Project Setup Complete</p>
-              <p>✅ Phase 2: Parallax Hero Complete</p>
-              <p>✅ Phase 3: Navigation & Sections Complete</p>
-              <p>🚧 Phase 4: About Section (Coming Next)</p>
+          <div className="relative z-20 w-full">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">About Me</h2>
+              <div className="w-24 h-1 bg-teal-secondary mx-auto rounded-full"></div>
             </div>
+            <AboutSection />
           </div>
         </section>
 
