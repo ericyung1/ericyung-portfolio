@@ -18,6 +18,26 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 2rem; /* Adds some breathing room when scrolling to sections */
+}
+
+/* Enhanced smooth scroll with better performance */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize scrolling performance */
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* GPU acceleration for better performance */
+section {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 body {
