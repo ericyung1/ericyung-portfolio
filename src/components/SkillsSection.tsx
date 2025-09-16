@@ -138,7 +138,7 @@ export default function SkillsSection() {
             Continuous Learning
           </h3>
           <p className="text-sm lg:text-base text-dark-blue opacity-90 mb-6 max-w-3xl mx-auto">
-            [PLACEHOLDER] I'm always exploring new technologies and expanding my skill set. 
+            [PLACEHOLDER] I&apos;m always exploring new technologies and expanding my skill set. 
             Currently learning and experimenting with emerging tools and frameworks to stay at the forefront of development.
           </p>
           

@@ -68,7 +68,7 @@ export default function Home() {
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Experience</h2>
               <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
               <p className="text-lg lg:text-xl opacity-90 max-w-2xl mx-auto px-4">
-                My professional journey and the impact I've made along the way
+                My professional journey and the impact I&apos;ve made along the way
               </p>
             </div>
             <ExperienceSection />

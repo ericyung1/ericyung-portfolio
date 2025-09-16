@@ -56,12 +56,12 @@ export default function AboutSection() {
           {/* Bio Content - Mobile-optimized typography */}
           <div className="mb-8">
             <p className="text-lg sm:text-xl leading-relaxed mb-6">
-              [PLACEHOLDER BIO] Welcome! I'm a passionate software engineer with experience in full-stack development, 
+              [PLACEHOLDER BIO] Welcome! I&apos;m a passionate software engineer with experience in full-stack development, 
               machine learning, and creating innovative solutions that make a difference.
             </p>
             <p className="text-base sm:text-lg leading-relaxed mb-6 opacity-90">
               [PLACEHOLDER] I enjoy working with modern technologies like React, TypeScript, Python, and cloud platforms. 
-              When I'm not coding, you can find me exploring new technologies, contributing to open source, or working on personal projects.
+              When I&apos;m not coding, you can find me exploring new technologies, contributing to open source, or working on personal projects.
             </p>
             <p className="text-base sm:text-lg leading-relaxed opacity-90">
               [PLACEHOLDER] Currently seeking opportunities where I can contribute to meaningful projects and continue growing as a developer.
@@ -70,7 +70,7 @@ export default function AboutSection() {
 
           {/* Social Links - Touch-friendly sizing */}
           <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4">Let's Connect</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4">Let&apos;s Connect</h3>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center lg:items-start lg:justify-start justify-center">
               {socialLinks.map((link) => (
                 <a
