@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import ParallaxHero from '@/components/ParallaxHero'
 import ScrollToTop from '@/components/ScrollToTop'
 import AboutSection from '@/components/AboutSection'
+import ExperienceSection from '@/components/ExperienceSection'
 
 export default function Home() {
   return (
@@ -29,22 +30,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experience Section - Placeholder for Phase 5 */}
-        <section id="experience" className="min-h-screen bg-gradient-to-b from-gradient-1 via-teal-primary to-gradient-2 text-white flex items-center justify-center px-6 relative">
-          <div className="text-center max-w-4xl">
-            <h2 className="text-5xl font-bold mb-6">Experience</h2>
-            <p className="text-xl leading-relaxed mb-8">
-              This section will showcase your work experience with timeline or card layouts in Phase 5.
-            </p>
-            <div className="space-y-6 mt-12">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-left">
-                  <h3 className="text-xl font-semibold mb-2">Position {i}</h3>
-                  <p className="text-teal-secondary mb-2">Company Name • 2023 - Present</p>
-                  <p className="text-sm opacity-75">Placeholder experience description with impact bullets</p>
-                </div>
-              ))}
+        {/* Experience Section - Phase 5 Complete */}
+        <section id="experience" className="min-h-screen bg-gradient-to-b from-gradient-1 via-teal-primary to-gradient-2 text-white flex items-center justify-center py-16 lg:py-20 relative">
+          <div className="w-full">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Experience</h2>
+              <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
+              <p className="text-lg lg:text-xl opacity-90 max-w-2xl mx-auto px-4">
+                My professional journey and the impact I've made along the way
+              </p>
             </div>
+            <ExperienceSection />
           </div>
         </section>
 
