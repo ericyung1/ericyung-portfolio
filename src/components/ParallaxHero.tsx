@@ -128,8 +128,8 @@ export default function ParallaxHero() {
         Welcome
       </div>
 
-      {/* CTA Buttons - Now underneath the text */}
-      <div ref={ctaRef} className="absolute z-50 flex flex-col sm:flex-row gap-4 mt-32 md:mt-40 lg:mt-48">
+      {/* CTA Buttons - Now underneath the text with more spacing */}
+      <div ref={ctaRef} className="absolute z-50 flex flex-col sm:flex-row gap-4 mt-40 md:mt-52 lg:mt-60">
         <a 
           href="#about"
           onClick={(e) => {
@@ -152,8 +152,8 @@ export default function ParallaxHero() {
         </a>
       </div>
 
-      {/* Bottom Gradient Overlay */}
-      <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-dark-blue to-transparent z-40 pointer-events-none" />
+      {/* Bottom Gradient Overlay - Enhanced for seamless transition */}
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-dark-blue via-dark-blue/80 to-transparent z-40 pointer-events-none" />
     </section>
   )
 }
