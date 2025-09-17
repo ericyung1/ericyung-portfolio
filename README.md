@@ -90,3 +90,6 @@ npm run build
 - **Email**: eyung@wustl.edu
 - **LinkedIn**: [https://www.linkedin.com/in/eyung/](https://www.linkedin.com/in/eyung/)
 - **GitHub**: [https://github.com/ericyung1](https://github.com/ericyung1)
+
+---
+*Portfolio deployed with Vercel*
