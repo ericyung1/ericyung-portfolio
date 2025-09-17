@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+// import { FaEye } from 'react-icons/fa' // COMMENTED OUT - for project detail pages
 import { projects, getFeaturedProjects, getRegularProjects, type Project } from '@/lib/data/projects'
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -62,6 +63,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             >
               <FaExternalLinkAlt className="w-5 h-5" />
             </Link>
+            {/* Project Detail Link - COMMENTED OUT FOR NOW */}
+            {/* 
             <Link
               href={`/projects/${project.id}`}
               className="p-3 bg-white text-dark-blue rounded-full hover:bg-teal-secondary transition-colors duration-300"
@@ -69,6 +72,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             >
               <FaEye className="w-5 h-5" />
             </Link>
+            */}
           </div>
         </div>
       </div>
@@ -118,12 +122,15 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </Link>
           </div>
           
+          {/* View Details Link - COMMENTED OUT FOR NOW */}
+          {/* 
           <Link 
             href={`/projects/${project.id}`}
             className="text-sm text-teal-secondary hover:text-white transition-colors duration-300 font-medium"
           >
             View Details →
           </Link>
+          */}
         </div>
       </div>
     </div>
