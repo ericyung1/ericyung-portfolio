@@ -4,20 +4,9 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa'
+import { projects, getFeaturedProjects, getRegularProjects, type Project } from '@/lib/data/projects'
 
-interface ProjectProps {
-  id: number
-  title: string
-  description: string
-  longDescription: string
-  image: string
-  technologies: string[]
-  githubUrl: string
-  liveUrl: string
-  featured: boolean
-}
-
-const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -73,12 +62,13 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
             >
               <FaExternalLinkAlt className="w-5 h-5" />
             </Link>
-            <button
+            <Link
+              href={`/projects/${project.id}`}
               className="p-3 bg-white text-dark-blue rounded-full hover:bg-teal-secondary transition-colors duration-300"
               aria-label={`View ${project.title} details`}
             >
               <FaEye className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -128,9 +118,12 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
             </Link>
           </div>
           
-          <button className="text-sm text-teal-secondary hover:text-white transition-colors duration-300 font-medium">
+          <Link 
+            href={`/projects/${project.id}`}
+            className="text-sm text-teal-secondary hover:text-white transition-colors duration-300 font-medium"
+          >
             View Details →
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -138,67 +131,8 @@ const ProjectCard: React.FC<{ project: ProjectProps }> = ({ project }) => {
 }
 
 export default function ProjectsSection() {
-  // Placeholder projects data - clearly marked for easy replacement
-  const projects: ProjectProps[] = [
-    {
-      id: 1,
-      title: '[PLACEHOLDER] E-Commerce Platform',
-      description: '[PLACEHOLDER] A full-stack e-commerce solution with user authentication, payment processing, and admin dashboard. Built with modern technologies for optimal performance.',
-      longDescription: '[PLACEHOLDER] Comprehensive e-commerce platform featuring user registration, product catalog, shopping cart, secure payments via Stripe, order management, and admin panel.',
-      image: '/dragon.png', // Using existing asset as placeholder
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'JWT', 'Tailwind'],
-      githubUrl: 'https://github.com/ericyung1',
-      liveUrl: 'https://example.com',
-      featured: true
-    },
-    {
-      id: 2,
-      title: '[PLACEHOLDER] Task Management App',
-      description: '[PLACEHOLDER] Collaborative task management application with real-time updates, team workspaces, and project tracking capabilities.',
-      longDescription: '[PLACEHOLDER] Full-featured task management system with drag-and-drop boards, real-time collaboration, file attachments, and team analytics.',
-      image: '/castle_background.png', // Using existing asset as placeholder
-      technologies: ['Next.js', 'TypeScript', 'Socket.io', 'PostgreSQL', 'Prisma'],
-      githubUrl: 'https://github.com/ericyung1',
-      liveUrl: 'https://example.com',
-      featured: false
-    },
-    {
-      id: 3,
-      title: '[PLACEHOLDER] Weather Dashboard',
-      description: '[PLACEHOLDER] Interactive weather dashboard with location-based forecasts, historical data visualization, and customizable widgets.',
-      longDescription: '[PLACEHOLDER] Comprehensive weather application with 7-day forecasts, interactive maps, weather alerts, and data visualization charts.',
-      image: '/mountain_foreground.png', // Using existing asset as placeholder
-      technologies: ['React', 'Chart.js', 'Weather API', 'CSS3', 'LocalStorage'],
-      githubUrl: 'https://github.com/ericyung1',
-      liveUrl: 'https://example.com',
-      featured: false
-    },
-    {
-      id: 4,
-      title: '[PLACEHOLDER] Portfolio Website',
-      description: '[PLACEHOLDER] Modern, responsive portfolio website with parallax effects, smooth animations, and optimized performance.',
-      longDescription: '[PLACEHOLDER] Personal portfolio featuring parallax scrolling, mobile-first design, and modern web technologies.',
-      image: '/stars.png', // Using existing asset as placeholder
-      technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion', 'Vercel'],
-      githubUrl: 'https://github.com/ericyung1',
-      liveUrl: 'https://example.com',
-      featured: false
-    },
-    {
-      id: 5,
-      title: '[PLACEHOLDER] Social Media Dashboard',
-      description: '[PLACEHOLDER] Analytics dashboard for social media management with post scheduling, engagement tracking, and performance insights.',
-      longDescription: '[PLACEHOLDER] Comprehensive social media management tool with content calendar, analytics, and multi-platform posting.',
-      image: '/self_portrait.jpg', // Using existing asset as placeholder
-      technologies: ['Vue.js', 'Express', 'MongoDB', 'Social APIs', 'Chart.js'],
-      githubUrl: 'https://github.com/ericyung1',
-      liveUrl: 'https://example.com',
-      featured: true
-    }
-  ]
-
-  const featuredProjects = projects.filter(project => project.featured)
-  const regularProjects = projects.filter(project => !project.featured)
+  const featuredProjects = getFeaturedProjects()
+  const regularProjects = getRegularProjects()
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
