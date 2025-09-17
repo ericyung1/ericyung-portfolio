@@ -238,7 +238,8 @@ export default function ProjectsSection() {
         </div>
       )}
 
-      {/* Call to Action */}
+      {/* Call to Action - COMMENTED OUT FOR NOW */}
+      {/* 
       <div className="text-center mt-16">
         <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8">
           <h3 className="text-2xl font-bold text-white mb-4">
@@ -258,6 +259,7 @@ export default function ProjectsSection() {
           </Link>
         </div>
       </div>
+      */}
     </div>
   )
 }

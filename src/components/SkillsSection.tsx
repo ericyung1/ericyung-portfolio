@@ -131,7 +131,8 @@ export default function SkillsSection() {
         ))}
       </div>
 
-      {/* Additional Skills Summary */}
+      {/* Additional Skills Summary - COMMENTED OUT FOR NOW */}
+      {/* 
       <div className="mt-12 lg:mt-16">
         <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 lg:p-8 text-center">
           <h3 className="text-xl lg:text-2xl font-bold text-dark-blue mb-4">
@@ -142,7 +143,6 @@ export default function SkillsSection() {
             Currently learning and experimenting with emerging tools and frameworks to stay at the forefront of development.
           </p>
           
-          {/* Learning Progress */}
           <div className="flex flex-wrap justify-center gap-3">
             {['[PLACEHOLDER] GraphQL', '[PLACEHOLDER] Rust', '[PLACEHOLDER] Kubernetes', '[PLACEHOLDER] Machine Learning'].map((skill) => (
               <span 
@@ -155,6 +155,7 @@ export default function SkillsSection() {
           </div>
         </div>
       </div>
+      */}
     </div>
   )
 }
