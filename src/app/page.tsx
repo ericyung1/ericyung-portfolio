@@ -5,6 +5,7 @@ import AboutSection from '@/components/AboutSection'
 import ExperienceSection from '@/components/ExperienceSection'
 import SkillsSection from '@/components/SkillsSection'
 import ProjectsSection from '@/components/ProjectsSection'
+import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
   return (
@@ -75,30 +76,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section - Placeholder for Phase 9 */}
-        <section id="contact" className="min-h-screen text-white flex items-center justify-center px-6 relative"
+        {/* Contact Section - Phase 9 Complete */}
+        <section id="contact" className="min-h-screen text-white flex items-center justify-center py-16 lg:py-20 relative"
                  style={{background: 'linear-gradient(to bottom, #1a5c6b 0%, #124757 50%, #208599 100%)'}}>
-          <div className="text-center max-w-4xl">
-            <h2 className="text-5xl font-bold mb-6">Contact</h2>
-            <p className="text-xl leading-relaxed mb-8">
-              This section will include your contact information, social links, and resume download in Phase 9.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <a 
-                href="mailto:eyung@wustl.edu"
-                className="px-8 py-3 bg-white text-teal-primary rounded-full hover:bg-opacity-90 transition-all duration-300 hover:scale-105"
-              >
-                Email Me
-              </a>
-              <a 
-                href="/eric-yung-resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-teal-primary transition-all duration-300 hover:scale-105"
-              >
-                Download Resume
-              </a>
+          <div className="w-full">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Get In Touch</h2>
+              <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
             </div>
+            <ContactSection />
           </div>
         </section>
       </main>
