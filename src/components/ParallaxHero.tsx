@@ -126,22 +126,22 @@ export default function ParallaxHero() {
       </div>
 
       {/* Hero Text - Now centered */}
-      <div 
-        ref={textRef}
-        className="absolute text-white font-bold text-6xl md:text-8xl lg:text-9xl whitespace-nowrap z-40 text-center"
-      >
-        Welcome
-      </div>
+              <div 
+                ref={textRef}
+                className="absolute text-white font-bold text-5xl md:text-7xl lg:text-8xl whitespace-nowrap z-40 text-center"
+              >
+                Welcome
+              </div>
 
       {/* CTA Buttons - Now underneath the text with more spacing */}
-      <div ref={ctaRef} className="absolute z-50 flex flex-col sm:flex-row gap-4 mt-40 md:mt-52 lg:mt-60">
+      <div ref={ctaRef} className="absolute z-50 flex flex-col sm:flex-row gap-4 mt-32 md:mt-40 lg:mt-48">
         <a 
           href="#about"
           onClick={(e) => {
             e.preventDefault()
             smoothScrollTo('#about')
           }}
-          className="inline-block px-8 py-3 bg-white text-teal-primary text-xl font-medium rounded-full hover:bg-opacity-90 transition-all duration-300 hover:scale-105 text-center cursor-pointer"
+          className="inline-block px-6 py-2 bg-white text-teal-primary text-lg font-medium rounded-full hover:bg-opacity-90 transition-all duration-300 hover:scale-105 text-center cursor-pointer"
         >
           Explore
         </a>
@@ -151,7 +151,7 @@ export default function ParallaxHero() {
             e.preventDefault()
             smoothScrollTo('#projects')
           }}
-          className="inline-block px-8 py-3 bg-transparent border-2 border-white text-white text-xl font-medium rounded-full hover:bg-white hover:text-teal-primary transition-all duration-300 hover:scale-105 text-center cursor-pointer"
+          className="inline-block px-6 py-2 bg-transparent border-2 border-white text-white text-lg font-medium rounded-full hover:bg-white hover:text-teal-primary transition-all duration-300 hover:scale-105 text-center cursor-pointer"
         >
           View Projects
         </a>

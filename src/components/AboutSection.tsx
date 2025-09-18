@@ -38,7 +38,7 @@ export default function AboutSection() {
         
         {/* Profile Photo - Responsive sizing */}
         <div className="flex-shrink-0">
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto lg:mx-0">
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto lg:mx-0">
             <Image
               src="/self_portrait.jpg"
               alt="Eric Yung - Profile Photo"
@@ -54,19 +54,17 @@ export default function AboutSection() {
         <div className="flex-1 text-center lg:text-left">
           
           {/* Bio Content - Mobile-optimized typography */}
-          <div className="mb-8">
-            <p className="text-lg sm:text-xl leading-relaxed mb-6">
-              [PLACEHOLDER BIO] Welcome! I&apos;m a passionate software engineer with experience in full-stack development, 
-              machine learning, and creating innovative solutions that make a difference.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed mb-6 opacity-90">
-              [PLACEHOLDER] I enjoy working with modern technologies like React, TypeScript, Python, and cloud platforms. 
-              When I&apos;m not coding, you can find me exploring new technologies, contributing to open source, or working on personal projects.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed opacity-90">
-              [PLACEHOLDER] Currently seeking opportunities where I can contribute to meaningful projects and continue growing as a developer.
-            </p>
-          </div>
+                  <div className="mb-8">
+                    <p className="text-base sm:text-lg leading-relaxed mb-6">
+                      Hi, I&apos;m Eric Yung, a recent Computer Science and Economics graduate from Washington University in St. Louis. I&apos;ve worked in a variety of industries including healthcare, fintech, and commercial manufacturing as a software engineer, building scalable backend systems, cloud-based dashboards, and AI-driven applications.
+                    </p>
+                    <p className="text-base sm:text-lg leading-relaxed mb-6 opacity-90">
+                      I enjoy working with modern technologies like React, TypeScript, Python, and cloud platforms, and I&apos;m always eager to explore new tools that make development more efficient and impactful. When I&apos;m not coding, you can usually find me at my weekly bowling leagues, playing Pokémon Go, or watching movies.
+                    </p>
+                    <p className="text-base sm:text-lg leading-relaxed opacity-90">
+                      I&apos;m currently looking for a software engineering role where I can help solve real-world problems, continuously learn, and work in a collaborative environment.
+                    </p>
+                  </div>
 
           {/* Social Links - Touch-friendly sizing */}
           <div className="space-y-4">
