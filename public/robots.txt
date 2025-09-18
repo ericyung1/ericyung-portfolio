@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ericyung-portfolio.vercel.app/sitemap.xml
+
+# Allow all crawlers to access the site
+# This helps with SEO and discoverability
+Crawl-delay: 1

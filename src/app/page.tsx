@@ -81,7 +81,7 @@ export default function Home() {
                  style={{background: 'linear-gradient(to bottom, #1a5c6b 0%, #124757 50%, #208599 100%)'}}>
           <div className="w-full">
             <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Get In Touch</h2>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Contact</h2>
               <div className="w-24 h-1 bg-white mx-auto rounded-full mb-4"></div>
             </div>
             <ContactSection />
