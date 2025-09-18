@@ -92,11 +92,10 @@ export default function ContactSection() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-white hover:text-teal-secondary transition-colors duration-300 text-lg sm:text-xl group"
-                  aria-label={social.name}
+                  className="flex items-center gap-3 px-6 py-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300 hover:scale-105 min-w-[140px] justify-center sm:justify-start backdrop-blur-sm"
                 >
-                  <span className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-300">{social.icon}</span>
-                  <span>{social.name}</span>
+                  <span className="text-xl">{social.icon}</span>
+                  <span className="font-medium">{social.name}</span>
                 </Link>
               ))}
             </div>
@@ -107,16 +106,16 @@ export default function ContactSection() {
         <div className="space-y-8">
           
           {/* Email Contact */}
-          <div className="text-center p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-            <div className="text-5xl text-teal-secondary mb-6">
+          <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+            <div className="text-4xl text-teal-secondary mb-4">
               <FaEnvelope className="mx-auto" />
             </div>
-            <h4 className="text-2xl font-bold text-white mb-8">
+            <h4 className="text-xl font-bold text-white mb-6">
               Let&apos;s Connect
             </h4>
             <a
               href="mailto:eyung@wustl.edu"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-teal-secondary text-dark-blue font-bold rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg text-lg"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-teal-secondary text-dark-blue font-bold rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg"
             >
               <FaEnvelope />
               Send Email
@@ -124,18 +123,18 @@ export default function ContactSection() {
           </div>
 
           {/* Resume Download */}
-          <div className="text-center p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-            <div className="text-4xl text-white/70 mb-4">
+          <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+            <div className="text-3xl text-white/70 mb-3">
               <FaDownload className="mx-auto" />
             </div>
-            <h4 className="text-xl font-bold text-white mb-6">
+            <h4 className="text-lg font-bold text-white mb-5">
               Download My Resume
             </h4>
             <a
               href="/eric-yung-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-dark-blue hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-dark-blue hover:scale-105 transition-all duration-300"
             >
               <FaDownload />
               Download PDF
