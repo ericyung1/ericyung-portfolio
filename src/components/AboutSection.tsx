@@ -89,15 +89,15 @@ export default function AboutSection() {
           <div className="mt-8 pt-8 border-t border-white border-opacity-20">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">[X]+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">5+</div>
                 <div className="text-sm sm:text-base opacity-75">Projects Completed</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">[Y]+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">10+</div>
                 <div className="text-sm sm:text-base opacity-75">Technologies</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">[Z]+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-teal-secondary">3+</div>
                 <div className="text-sm sm:text-base opacity-75">Years Experience</div>
               </div>
             </div>

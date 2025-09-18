@@ -77,8 +77,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section - Phase 9 Complete */}
-        <section id="contact" className="min-h-screen text-white flex items-center justify-center py-16 lg:py-20 relative"
-                 style={{background: 'linear-gradient(to bottom, #1a5c6b 0%, #124757 50%, #208599 100%)'}}>
+        <section id="contact" className="min-h-screen bg-gradient-to-b from-gradient-1 via-dark-blue to-dark-blue text-white flex items-center justify-center py-16 lg:py-20 relative">
           <div className="w-full">
             <div className="text-center mb-10">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">Contact</h2>

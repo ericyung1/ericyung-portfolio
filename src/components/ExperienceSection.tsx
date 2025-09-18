@@ -86,7 +86,8 @@ export default function ExperienceSection() {
                     {exp.description}
                   </p>
 
-                  {/* Achievements */}
+                  {/* Achievements - Commented out for cleaner layout */}
+                  {/* 
                   <div className="mb-6">
                     <h5 className="text-sm font-semibold mb-3 text-teal-secondary">Key Achievements:</h5>
                     <ul className="space-y-2">
@@ -98,6 +99,7 @@ export default function ExperienceSection() {
                       ))}
                     </ul>
                   </div>
+                  */}
 
                   {/* Technologies */}
                   <div>
@@ -122,15 +124,22 @@ export default function ExperienceSection() {
           ))}
         </div>
 
-        {/* Call-to-action for more experience */}
+        {/* Call-to-action for more experience - Commented out */}
+        {/*
         <div className="mt-12 lg:mt-16 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white bg-opacity-10 backdrop-blur-sm rounded-full hover:bg-opacity-15 transition-all duration-300">
+          <a 
+            href="/eric-yung-resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white bg-opacity-10 backdrop-blur-sm rounded-full hover:bg-opacity-15 transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
             <svg className="w-5 h-5 text-teal-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span className="text-sm lg:text-base font-medium">[PLACEHOLDER] View Full Resume</span>
-          </div>
+            <span className="text-sm lg:text-base font-medium">View Full Resume</span>
+          </a>
         </div>
+        */}
       </div>
     </div>
   )
