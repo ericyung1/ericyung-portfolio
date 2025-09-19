@@ -10,12 +10,12 @@ export default function SkillsSection() {
         </svg>
       ),
       skills: [
-        { name: '[PLACEHOLDER] JavaScript', level: 'Expert', years: '4+' },
-        { name: '[PLACEHOLDER] TypeScript', level: 'Advanced', years: '3+' },
-        { name: '[PLACEHOLDER] Python', level: 'Advanced', years: '3+' },
-        { name: '[PLACEHOLDER] Java', level: 'Intermediate', years: '2+' },
-        { name: '[PLACEHOLDER] HTML/CSS', level: 'Expert', years: '5+' },
-        { name: '[PLACEHOLDER] SQL', level: 'Intermediate', years: '2+' }
+        { name: 'JavaScript', level: 'Expert', years: '4+' },
+        { name: 'TypeScript', level: 'Advanced', years: '3+' },
+        { name: 'Python', level: 'Advanced', years: '3+' },
+        { name: 'Java', level: 'Advanced', years: '3+' },
+        { name: 'HTML/CSS', level: 'Expert', years: '5+' },
+        { name: 'SQL', level: 'Intermediate', years: '2+' }
       ]
     },
     {
@@ -27,12 +27,12 @@ export default function SkillsSection() {
         </svg>
       ),
       skills: [
-        { name: '[PLACEHOLDER] React', level: 'Expert', years: '3+' },
-        { name: '[PLACEHOLDER] Next.js', level: 'Advanced', years: '2+' },
-        { name: '[PLACEHOLDER] Node.js', level: 'Advanced', years: '3+' },
-        { name: '[PLACEHOLDER] Express.js', level: 'Intermediate', years: '2+' },
-        { name: '[PLACEHOLDER] Django', level: 'Intermediate', years: '1+' },
-        { name: '[PLACEHOLDER] Tailwind CSS', level: 'Advanced', years: '2+' }
+        { name: 'React', level: 'Expert', years: '3+' },
+        { name: 'Next.js', level: 'Advanced', years: '2+' },
+        { name: 'Node.js', level: 'Advanced', years: '3+' },
+        { name: 'Express.js', level: 'Intermediate', years: '2+' },
+        { name: 'Django', level: 'Intermediate', years: '1+' },
+        { name: 'Tailwind CSS', level: 'Advanced', years: '2+' }
       ]
     },
     {
@@ -45,12 +45,12 @@ export default function SkillsSection() {
         </svg>
       ),
       skills: [
-        { name: '[PLACEHOLDER] Git/GitHub', level: 'Advanced', years: '4+' },
-        { name: '[PLACEHOLDER] AWS', level: 'Intermediate', years: '2+' },
-        { name: '[PLACEHOLDER] Docker', level: 'Intermediate', years: '1+' },
-        { name: '[PLACEHOLDER] MongoDB', level: 'Intermediate', years: '2+' },
-        { name: '[PLACEHOLDER] PostgreSQL', level: 'Intermediate', years: '2+' },
-        { name: '[PLACEHOLDER] Figma', level: 'Intermediate', years: '2+' }
+        { name: 'Git/GitHub', level: 'Advanced', years: '4+' },
+        { name: 'AWS', level: 'Intermediate', years: '2+' },
+        { name: 'Docker', level: 'Intermediate', years: '1+' },
+        { name: 'MongoDB', level: 'Intermediate', years: '2+' },
+        { name: 'PostgreSQL', level: 'Intermediate', years: '2+' },
+        { name: 'Figma', level: 'Intermediate', years: '2+' }
       ]
     }
   ]
@@ -71,9 +71,9 @@ export default function SkillsSection() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
       {/* Skills Grid - Mobile-first responsive */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
         {skillCategories.map((category) => (
-          <div key={category.id} className="bg-dark-blue bg-opacity-30 backdrop-blur-sm rounded-xl p-6 lg:p-8 hover:bg-opacity-40 transition-all duration-300 shadow-lg hover:shadow-xl border border-white border-opacity-10">
+          <div key={category.id} className="bg-dark-blue bg-opacity-30 backdrop-blur-sm rounded-xl p-6 lg:p-8 hover:bg-opacity-40 transition-all duration-300 shadow-lg hover:shadow-xl border border-white border-opacity-10 h-full flex flex-col">
             
             {/* Category Header */}
             <div className="flex items-center gap-3 mb-6">
@@ -86,7 +86,7 @@ export default function SkillsSection() {
             </div>
 
             {/* Skills List */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-grow">
               {category.skills.map((skill, index) => (
                 <div key={index} className="group">
                   {/* Skill Name and Level */}
