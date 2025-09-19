@@ -1,49 +1,54 @@
+import Image from 'next/image'
+
 export default function ExperienceSection() {
-  // Placeholder experience data - clearly marked for easy replacement
+  // Real work experience data - most recent first
   const experiences = [
     {
       id: 1,
-      company: '[PLACEHOLDER COMPANY 1]',
-      position: '[PLACEHOLDER POSITION 1]',
-      location: '[CITY, STATE]',
-      duration: '[START DATE] - [END DATE]',
-      type: 'Full-time', // Full-time, Part-time, Internship, Contract
-      description: '[PLACEHOLDER DESCRIPTION] Brief description of your role and key responsibilities at this position.',
+      company: 'True Manufacturing',
+      position: 'Software Developer Co-op',
+      location: "O'Fallon, MO",
+      duration: 'January 2024 - June 2024',
+      type: 'Co-op',
+      logo: '/images/companies/true-manufacturing-logo.png',
+      description: 'Supported internal IT operations on the Blues Team, collaborated with business analysts to build SSRS dashboards, assisted warehouse teams with technology solutions, etc.',
       achievements: [
         '[PLACEHOLDER ACHIEVEMENT 1] - Quantified impact or key accomplishment',
         '[PLACEHOLDER ACHIEVEMENT 2] - Another significant contribution',
         '[PLACEHOLDER ACHIEVEMENT 3] - Third major achievement or responsibility'
       ],
-      technologies: ['React', 'TypeScript', 'Node.js', 'AWS'] // Example tech stack
+      technologies: ['C#', 'JavaScript', 'ASP.NET', 'EF Core']
     },
     {
       id: 2,
-      company: '[PLACEHOLDER COMPANY 2]',
-      position: '[PLACEHOLDER POSITION 2]',
-      location: '[CITY, STATE]',
-      duration: '[START DATE] - [END DATE]',
+      company: 'Equifax',
+      position: 'Backend Engineer Intern',
+      location: 'St. Louis, MO',
+      duration: 'May 2023 - August 2023',
       type: 'Internship',
-      description: '[PLACEHOLDER DESCRIPTION] Brief description of your role and key responsibilities at this position.',
+      logo: '/images/companies/equifax-logo.png',
+      description: 'Worked in the Equifax Workforce Solutions team, developing backend microservices to integrate payroll provider data and streamline employment verification workflows.',
       achievements: [
         '[PLACEHOLDER ACHIEVEMENT 1] - Quantified impact or key accomplishment',
         '[PLACEHOLDER ACHIEVEMENT 2] - Another significant contribution',
         '[PLACEHOLDER ACHIEVEMENT 3] - Third major achievement or responsibility'
       ],
-      technologies: ['Python', 'Django', 'PostgreSQL', 'Docker']
+      technologies: ['Java', 'Spring Boot', 'GCP', 'Jenkins']
     },
     {
       id: 3,
-      company: '[PLACEHOLDER COMPANY 3]',
-      position: '[PLACEHOLDER POSITION 3]',
-      location: '[CITY, STATE]',
-      duration: '[START DATE] - [END DATE]',
-      type: 'Part-time',
-      description: '[PLACEHOLDER DESCRIPTION] Brief description of your role and key responsibilities at this position.',
+      company: 'BJC Healthcare',
+      position: 'Software Engineer Intern',
+      location: 'St. Louis, MO',
+      duration: 'April 2022 - November 2022',
+      type: 'Internship',
+      logo: '/images/companies/bjc-logo.png',
+      description: 'At the peak of the COVID pandemic, I worked in BJC Healthcare\'s IT department improving the booster shot scheduler, supporting employee pharmacy tools, handling SQL data requests, etc.',
       achievements: [
         '[PLACEHOLDER ACHIEVEMENT 1] - Quantified impact or key accomplishment',
         '[PLACEHOLDER ACHIEVEMENT 2] - Another significant contribution'
       ],
-      technologies: ['JavaScript', 'Vue.js', 'Firebase', 'Git']
+      technologies: ['Java', 'Apache Maven', 'SQL', 'Epic EHR']
     }
   ]
 
@@ -66,18 +71,29 @@ export default function ExperienceSection() {
                 <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 lg:p-8 hover:bg-opacity-15 transition-all duration-300 shadow-lg hover:shadow-xl">
                   
                   {/* Header */}
-                  <div className="mb-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                      <h3 className="text-xl lg:text-2xl font-bold text-teal-secondary">{exp.position}</h3>
-                      <span className="text-sm px-3 py-1 bg-teal-primary bg-opacity-30 rounded-full text-teal-secondary font-medium">
-                        {exp.type}
-                      </span>
-                    </div>
-                    <h4 className="text-lg lg:text-xl font-semibold mb-1">{exp.company}</h4>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm lg:text-base opacity-75">
-                      <span>{exp.duration}</span>
-                      <span className="hidden sm:inline">•</span>
-                      <span>{exp.location}</span>
+                  <div className="mb-6">
+                    {/* Top Row: Position and Company Logo */}
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl lg:text-2xl font-bold text-teal-secondary mb-2">{exp.position}</h3>
+                        <h4 className="text-lg lg:text-xl font-semibold mb-2">{exp.company}</h4>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm lg:text-base opacity-75">
+                          <span className="font-medium">{exp.duration}</span>
+                          <span className="hidden sm:inline">•</span>
+                          <span>{exp.location}</span>
+                        </div>
+                      </div>
+                      
+                      {/* Company Logo - Top Right */}
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex-shrink-0 bg-white bg-opacity-10 rounded-xl p-3 backdrop-blur-sm">
+                        <Image
+                          src={exp.logo}
+                          alt={`${exp.company} Logo`}
+                          fill
+                          className="object-contain p-1"
+                          sizes="(max-width: 640px) 64px, (max-width: 1024px) 80px, 96px"
+                        />
+                      </div>
                     </div>
                   </div>
 

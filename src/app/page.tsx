@@ -39,10 +39,10 @@ export default function Home() {
           <div className="w-full">
                   <div className="text-center mb-10">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">Projects</h2>
-                    <div className="w-20 h-1 bg-white mx-auto rounded-full mb-3"></div>
-                    <p className="text-base lg:text-lg opacity-90 max-w-2xl mx-auto px-4">
+                    <div className="w-20 h-1 bg-white mx-auto rounded-full"></div>
+                    {/* <p className="text-base lg:text-lg opacity-90 max-w-2xl mx-auto px-4">
                       Showcasing my passion for creating meaningful digital experiences
-                    </p>
+                    </p> */}
                   </div>
             <ProjectsSection />
           </div>
@@ -53,10 +53,10 @@ export default function Home() {
           <div className="w-full">
                   <div className="text-center mb-10">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 text-dark-blue">Skills</h2>
-                    <div className="w-20 h-1 bg-dark-blue mx-auto rounded-full mb-3"></div>
-                    <p className="text-base lg:text-lg text-dark-blue opacity-90 max-w-2xl mx-auto px-4">
+                    <div className="w-20 h-1 bg-dark-blue mx-auto rounded-full"></div>
+                    {/* <p className="text-base lg:text-lg text-dark-blue opacity-90 max-w-2xl mx-auto px-4">
                       The technologies and tools I use to bring ideas to life
-                    </p>
+                    </p> */}
                   </div>
             <SkillsSection />
           </div>
@@ -67,10 +67,10 @@ export default function Home() {
           <div className="w-full">
                   <div className="text-center mb-10">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">Experience</h2>
-                    <div className="w-20 h-1 bg-white mx-auto rounded-full mb-3"></div>
-                    <p className="text-base lg:text-lg opacity-90 max-w-2xl mx-auto px-4">
+                    <div className="w-20 h-1 bg-white mx-auto rounded-full"></div>
+                    {/* <p className="text-base lg:text-lg opacity-90 max-w-2xl mx-auto px-4">
                       My professional journey and the impact I&apos;ve made along the way
-                    </p>
+                    </p> */}
                   </div>
             <ExperienceSection />
           </div>
