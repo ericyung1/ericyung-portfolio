@@ -22,33 +22,33 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'Puzzle Pathfinder',
-    description: '[PLACEHOLDER] Intelligent grid pathfinding solver with Dijkstra\'s Algorithm. Interactive puzzle editor with prize categories and optimal path finding.',
-    longDescription: '[PLACEHOLDER] Grid-based pathfinding application featuring interactive editing, prize management, and advanced algorithms for optimal route calculation.',
+    description: 'Interactive grid-based pathfinding solver using Dijkstra\'s Algorithm with prize collection, budget optimization, and dual solving modes for complex pathfinding challenges.',
+    longDescription: 'Advanced pathfinding visualization tool featuring interactive grid editing, algorithm optimization, and real-time path calculation with comprehensive state management.',
     detailedDescription: [
-      '[PLACEHOLDER] This project was built to solve the challenge of creating an interactive pathfinding visualization tool.',
-      '[PLACEHOLDER] Features include a 15x15 grid editor, prize category management, and Dijkstra\'s algorithm implementation.',
-      '[PLACEHOLDER] The application supports multiple solving modes and provides visual feedback for optimal paths.',
-      '[PLACEHOLDER] Built with Next.js and TypeScript for optimal performance and type safety.'
+      'Built an interactive pathfinding application that demonstrates advanced algorithm implementation and optimization techniques.',
+      'Features a 15x15 grid editor with prize category management and Dijkstra\'s algorithm implementation for optimal route calculation.',
+      'The application supports multiple solving modes and provides visual feedback for algorithm execution and path optimization.',
+      'Developed with Next.js and TypeScript for optimal performance, type safety, and modern web development practices.'
     ],
     image: '/images/projects/puzzle-pathfinder.png',
     images: ['/images/projects/puzzle-pathfinder.png'],
-    technologies: ['[PLACEHOLDER]', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React', 'Dijkstra\'s Algorithm', 'Optimization'],
     githubUrl: 'https://github.com/ericyung1/puzzle-pathfinder',
     liveUrl: 'https://puzzle-pathfinder.vercel.app',
     featured: true,
     category: 'Algorithm Visualization',
-    duration: '[PLACEHOLDER]',
+    duration: '2 weeks',
     challenges: [
-      '[PLACEHOLDER] Implementing Dijkstra\'s algorithm efficiently',
-      '[PLACEHOLDER] Creating intuitive grid editing interface',
-      '[PLACEHOLDER] Managing complex state for prizes and costs',
-      '[PLACEHOLDER] Optimizing pathfinding performance'
+      'Implementing Dijkstra\'s algorithm efficiently with priority queue optimization',
+      'Creating intuitive grid editing interface with responsive design',
+      'Managing complex state for prizes, costs, and pathfinding data',
+      'Optimizing pathfinding performance for real-time visualization'
     ],
     solutions: [
-      '[PLACEHOLDER] Implemented optimized Dijkstra\'s with priority queue',
-      '[PLACEHOLDER] Built responsive grid with keyboard navigation',
-      '[PLACEHOLDER] Used local storage for state persistence',
-      '[PLACEHOLDER] Added visual feedback for algorithm steps'
+      'Implemented optimized Dijkstra\'s algorithm with priority queue data structure',
+      'Built responsive grid interface with keyboard navigation and accessibility features',
+      'Used React state management and local storage for data persistence',
+      'Added visual feedback system for algorithm steps and path highlighting'
     ],
     features: [
       'Interactive 15×15 Grid Editor',
@@ -64,33 +64,33 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'Mini Crossword',
-    description: '[PLACEHOLDER] AI-powered crossword puzzle generator with OpenAI integration. Features automatic clue generation and interactive solving interface.',
-    longDescription: '[PLACEHOLDER] Intelligent crossword puzzle application with AI-generated clues, multiple templates, and interactive solving experience.',
+    description: 'NYT-style 5×5 crossword puzzle generator with AI-powered clues, advanced constraint satisfaction algorithms, and interactive solving interface.',
+    longDescription: 'Intelligent crossword puzzle application featuring AI-generated clues, backtracking algorithms, and comprehensive puzzle generation with multiple templates.',
     detailedDescription: [
-      '[PLACEHOLDER] An advanced crossword puzzle generator that uses AI to create engaging puzzles with high-quality clues.',
-      '[PLACEHOLDER] Features backtracking algorithms for puzzle generation and OpenAI integration for NYT-style clues.',
-      '[PLACEHOLDER] The application includes 15 different templates and a 34K+ word database for variety.',
-      '[PLACEHOLDER] Built with modern web technologies and deployed on Vercel for optimal performance.'
+      'Developed an advanced crossword puzzle generator that uses AI integration to create engaging puzzles with high-quality, NYT-style clues.',
+      'Implemented backtracking algorithms with constraint satisfaction for efficient puzzle generation and OpenAI API integration.',
+      'The application includes 15 different puzzle templates and a 34K+ word database for variety and complexity.',
+      'Built with modern web technologies including Next.js and TypeScript, deployed on Vercel for optimal performance and scalability.'
     ],
     image: '/images/projects/mini-crossword.png',
     images: ['/images/projects/mini-crossword.png'],
-    technologies: ['[PLACEHOLDER]', 'Next.js', 'TypeScript', 'OpenAI API'],
+    technologies: ['Next.js', 'TypeScript', 'OpenAI API', 'Tailwind CSS', 'React', 'Constraint Satisfaction'],
     githubUrl: 'https://github.com/ericyung1/mini-crossword',
     liveUrl: 'https://mini-crossword-beige.vercel.app',
     featured: true,
     category: 'AI Application',
-    duration: '[PLACEHOLDER]',
+    duration: '3 weeks',
     challenges: [
-      '[PLACEHOLDER] Implementing crossword generation algorithms',
-      '[PLACEHOLDER] Integrating OpenAI for clue generation',
-      '[PLACEHOLDER] Creating responsive crossword interface',
-      '[PLACEHOLDER] Optimizing word placement algorithms'
+      'Implementing crossword generation algorithms with constraint satisfaction',
+      'Integrating OpenAI API for high-quality clue generation',
+      'Creating responsive crossword interface with interactive features',
+      'Optimizing word placement algorithms for efficient puzzle generation'
     ],
     solutions: [
-      '[PLACEHOLDER] Used backtracking with constraint satisfaction',
-      '[PLACEHOLDER] Integrated GPT-4o-mini for quality clues',
-      '[PLACEHOLDER] Built flexible grid system with CSS Grid',
-      '[PLACEHOLDER] Implemented most constrained variable heuristic'
+      'Used backtracking algorithm with constraint satisfaction and variable ordering heuristics',
+      'Integrated GPT-4o-mini API for generating contextual, NYT-style clues',
+      'Built flexible grid system using CSS Grid with responsive design principles',
+      'Implemented most constrained variable heuristic for optimal word placement'
     ],
     features: [
       'AI-Powered Clue Generation',
@@ -106,33 +106,33 @@ export const projects: Project[] = [
   {
     id: 3,
     title: 'Grid Packer',
-    description: '[PLACEHOLDER] Interactive grid packing visualization tool for exploring different packing algorithms and optimization strategies.',
-    longDescription: '[PLACEHOLDER] Grid-based packing algorithm visualization with interactive controls and multiple solving approaches.',
+    description: 'Visual square packing optimization tool featuring customizable constraints, multiple square sizes, etc.',
+    longDescription: 'Interactive optimization tool for square packing problems with constraint solving, algorithm visualization, and performance analysis.',
     detailedDescription: [
-      '[PLACEHOLDER] A visualization tool for exploring different grid packing algorithms and optimization strategies.',
-      '[PLACEHOLDER] Features interactive grid editing and multiple algorithm implementations.',
-      '[PLACEHOLDER] The application provides visual feedback for different packing approaches.',
-      '[PLACEHOLDER] Built with modern web technologies for smooth interactive experience.'
+      'Built a comprehensive visualization tool for exploring square packing algorithms and optimization strategies with real-time feedback.',
+      'Features interactive grid editing with customizable constraints and multiple algorithm implementations for different packing approaches.',
+      'The application provides detailed visual feedback for algorithm performance and optimization results with comparative analysis.',
+      'Developed with modern web technologies including Next.js and TypeScript for smooth interactive experience and responsive design.'
     ],
     image: '/images/projects/grid-packer.png',
     images: ['/images/projects/grid-packer.png'],
-    technologies: ['[PLACEHOLDER]', 'Next.js', 'TypeScript', 'Algorithm Visualization'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React', 'Optimization Algorithms', 'Data Visualization'],
     githubUrl: 'https://github.com/ericyung1/grid-packer',
     liveUrl: 'https://grid-packer.vercel.app',
     featured: false,
     category: 'Algorithm Visualization',
-    duration: '[PLACEHOLDER]',
+    duration: '2 weeks',
     challenges: [
-      '[PLACEHOLDER] Implementing efficient packing algorithms',
-      '[PLACEHOLDER] Creating intuitive visualization interface',
-      '[PLACEHOLDER] Optimizing algorithm performance',
-      '[PLACEHOLDER] Handling complex grid interactions'
+      'Implementing efficient square packing algorithms with constraint satisfaction',
+      'Creating intuitive visualization interface for complex algorithm interactions',
+      'Optimizing algorithm performance for real-time visualization and feedback',
+      'Handling complex grid interactions with multiple square sizes and constraints'
     ],
     solutions: [
-      '[PLACEHOLDER] Implemented multiple packing strategies',
-      '[PLACEHOLDER] Built responsive visualization components',
-      '[PLACEHOLDER] Added performance monitoring and optimization',
-      '[PLACEHOLDER] Created smooth animation system'
+      'Implemented multiple greedy packing strategies with optimization heuristics',
+      'Built responsive visualization components with smooth animations and transitions',
+      'Added performance monitoring and algorithm comparison features',
+      'Created interactive constraint system with real-time validation and feedback'
     ],
     features: [
       'Interactive Grid Interface',
@@ -148,33 +148,33 @@ export const projects: Project[] = [
   {
     id: 4,
     title: 'True Count Trainer',
-    description: '[PLACEHOLDER] Blackjack card counting practice application with different counting systems and training modes.',
-    longDescription: '[PLACEHOLDER] Comprehensive blackjack training tool with multiple counting systems and practice scenarios.',
+    description: 'Interactive training application for practicing Hi-Lo true count calculations with visual deck tracking.',
+    longDescription: 'Comprehensive mathematical training tool featuring card counting algorithms, statistical analysis, and progressive difficulty levels.',
     detailedDescription: [
-      '[PLACEHOLDER] A blackjack card counting trainer designed to help users practice different counting systems.',
-      '[PLACEHOLDER] Features multiple counting methods and realistic game scenarios.',
-      '[PLACEHOLDER] The application provides feedback and statistics to track improvement.',
-      '[PLACEHOLDER] Built with engaging UI and smooth card animations.'
+      'Developed an interactive training application for practicing mathematical calculations and statistical analysis in card counting scenarios.',
+      'Features multiple counting system implementations with realistic simulation algorithms and comprehensive performance tracking.',
+      'The application provides detailed feedback and statistical analysis to track improvement and learning progress.',
+      'Built with React and TypeScript featuring engaging UI, smooth animations, and mobile-responsive design.'
     ],
     image: '/images/projects/truecount-trainer.png',
     images: ['/images/projects/truecount-trainer.png'],
-    technologies: ['[PLACEHOLDER]', 'React', 'JavaScript', 'Game Logic'],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'SVG Graphics'],
     githubUrl: 'https://github.com/ericyung1/truecount-trainer',
     liveUrl: 'https://truecount-trainer.vercel.app',
     featured: false,
-    category: 'Educational Game',
-    duration: '[PLACEHOLDER]',
+    category: 'Educational Application',
+    duration: '2 weeks',
     challenges: [
-      '[PLACEHOLDER] Implementing accurate card counting logic',
-      '[PLACEHOLDER] Creating realistic game scenarios',
-      '[PLACEHOLDER] Building engaging user interface',
-      '[PLACEHOLDER] Tracking user progress effectively'
+      'Implementing accurate mathematical algorithms for card counting calculations',
+      'Creating realistic simulation scenarios with proper statistical modeling',
+      'Building engaging user interface with smooth animations and responsive design',
+      'Developing comprehensive progress tracking and performance analytics system'
     ],
     solutions: [
-      '[PLACEHOLDER] Implemented multiple counting systems',
-      '[PLACEHOLDER] Created realistic deck simulation',
-      '[PLACEHOLDER] Built intuitive training interface',
-      '[PLACEHOLDER] Added comprehensive statistics tracking'
+      'Implemented Hi-Lo counting system with accurate mathematical calculations and validation',
+      'Created realistic deck simulation with proper shuffling algorithms and statistical accuracy',
+      'Built intuitive training interface with progressive difficulty and immediate feedback',
+      'Added comprehensive statistics dashboard with performance tracking and trend analysis'
     ],
     features: [
       'Multiple Counting Systems',
@@ -190,33 +190,33 @@ export const projects: Project[] = [
   {
     id: 5,
     title: 'Finlytics Dashboard',
-    description: '[PLACEHOLDER] Financial analytics dashboard with data visualization, portfolio tracking, and market insights.',
-    longDescription: '[PLACEHOLDER] Comprehensive financial dashboard featuring portfolio analysis, market data, and investment tracking.',
+    description: 'Full-stack financial analytics dashboard with AI-powered revenue predictions, interactive data visualizations, etc.',
+    longDescription: 'Comprehensive financial analytics platform featuring machine learning integration, real-time data processing, and advanced business intelligence tools.',
     detailedDescription: [
-      '[PLACEHOLDER] A financial analytics dashboard designed for portfolio management and market analysis.',
-      '[PLACEHOLDER] Features real-time data visualization and comprehensive investment tracking.',
-      '[PLACEHOLDER] The application provides insights into market trends and portfolio performance.',
-      '[PLACEHOLDER] Built with modern data visualization libraries and responsive design.'
+      'Built a full-stack financial analytics dashboard designed for comprehensive business intelligence and predictive analytics.',
+      'Features AI-powered revenue forecasting with machine learning algorithms and real-time data visualization capabilities.',
+      'The application provides detailed insights into financial performance with KPI tracking and advanced analytics tools.',
+      'Developed with modern tech stack including React, Node.js, and MongoDB with responsive design and data export functionality.'
     ],
     image: '/images/projects/finlytics-dashboard.png',
     images: ['/images/projects/finlytics-dashboard.png'],
-    technologies: ['[PLACEHOLDER]', 'React', 'Chart.js', 'Financial APIs'],
+    technologies: ['React', 'TypeScript', 'Express.js', 'MongoDB', 'Recharts', 'Machine Learning'],
     githubUrl: 'https://github.com/ericyung1/finlytics-dashboard',
     liveUrl: 'https://finlytics-dashboard.vercel.app',
     featured: false,
     category: 'Financial Dashboard',
-    duration: '[PLACEHOLDER]',
+    duration: '4 weeks',
     challenges: [
-      '[PLACEHOLDER] Integrating financial data APIs',
-      '[PLACEHOLDER] Creating complex data visualizations',
-      '[PLACEHOLDER] Handling real-time data updates',
-      '[PLACEHOLDER] Building responsive dashboard layout'
+      'Integrating machine learning algorithms for revenue prediction and forecasting',
+      'Creating complex data visualizations with interactive charts and real-time updates',
+      'Handling large datasets with efficient data processing and API management',
+      'Building scalable full-stack architecture with responsive dashboard layout'
     ],
     solutions: [
-      '[PLACEHOLDER] Implemented efficient API management',
-      '[PLACEHOLDER] Used Chart.js for interactive charts',
-      '[PLACEHOLDER] Added real-time data streaming',
-      '[PLACEHOLDER] Created flexible dashboard components'
+      'Implemented predictive analytics with machine learning models and statistical algorithms',
+      'Used Recharts library for interactive data visualizations with custom components',
+      'Built efficient API layer with Express.js and MongoDB for data management',
+      'Created modular dashboard architecture with responsive design and export functionality'
     ],
     features: [
       'Portfolio Tracking',
