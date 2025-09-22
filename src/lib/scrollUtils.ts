@@ -35,7 +35,21 @@ export const isMac = (): boolean => {
   if (typeof window === 'undefined') return false
   
   const userAgent = navigator.userAgent.toLowerCase()
-  return userAgent.includes('mac') || userAgent.includes('darwin')
+  const platform = navigator.platform?.toLowerCase() || ''
+  return userAgent.includes('mac') || userAgent.includes('darwin') || platform.includes('mac')
+}
+
+// Detect Windows system
+export const isWindows = (): boolean => {
+  if (typeof window === 'undefined') return false
+  
+  const userAgent = navigator.userAgent.toLowerCase()
+  const platform = navigator.platform?.toLowerCase() || ''
+  return userAgent.includes('windows') || 
+         userAgent.includes('win32') || 
+         userAgent.includes('win64') ||
+         platform.includes('win') ||
+         platform.includes('windows')
 }
 
 // Custom scroll to position with consistent animation
@@ -57,8 +71,26 @@ export const scrollToPosition = ({
   const distance = target - startPosition
   const startTime = performance.now()
 
-  // Use shorter duration on Mac to counteract Safari's momentum
-  const adjustedDuration = isMac() ? duration * 0.7 : duration
+  // Platform-specific duration adjustments
+  let adjustedDuration = duration
+  
+  if (isMac()) {
+    // Shorter duration on Mac to counteract Safari's momentum
+    adjustedDuration = duration * 0.7
+  } else if (isWindows()) {
+    // Slightly longer duration on Windows for smoother animation
+    adjustedDuration = duration * 1.1
+  }
+  
+  // Debug logging for development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Scroll animation:', { 
+      platform: isMac() ? 'Mac' : isWindows() ? 'Windows' : 'Other',
+      originalDuration: duration,
+      adjustedDuration,
+      distance 
+    })
+  }
 
   const animateScroll = (currentTime: number) => {
     const elapsed = currentTime - startTime
@@ -76,7 +108,16 @@ export const scrollToPosition = ({
     }
   }
 
-  requestAnimationFrame(animateScroll)
+  // Start animation with fallback for browsers that don't support requestAnimationFrame properly
+  try {
+    requestAnimationFrame(animateScroll)
+  } catch (error) {
+    console.warn('RequestAnimationFrame failed, using fallback scroll:', error)
+    // Fallback to CSS smooth scroll
+    window.scrollTo({ top: target, behavior: 'smooth' })
+    // Approximate completion time
+    setTimeout(() => onComplete?.(), adjustedDuration)
+  }
 }
 
 // Scroll to top with platform-specific optimizations
@@ -121,9 +162,19 @@ export const disableCSSSmootScroll = (): (() => void) => {
   htmlElement.classList.add('custom-scroll-active')
   htmlElement.style.scrollBehavior = 'auto'
   
+  // Also set on body for better Windows browser compatibility
+  const bodyElement = document.body
+  const originalBodyScrollBehavior = bodyElement?.style.scrollBehavior
+  if (bodyElement) {
+    bodyElement.style.scrollBehavior = 'auto'
+  }
+  
   // Return cleanup function
   return () => {
     htmlElement.classList.remove('custom-scroll-active')
     htmlElement.style.scrollBehavior = originalScrollBehavior
+    if (bodyElement && originalBodyScrollBehavior !== undefined) {
+      bodyElement.style.scrollBehavior = originalBodyScrollBehavior
+    }
   }
 }
