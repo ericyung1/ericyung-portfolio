@@ -16,11 +16,9 @@ export default function ParallaxHero() {
   const smoothScrollTo = (elementId: string) => {
     // Import the scroll utilities dynamically to avoid SSR issues
     import('@/lib/scrollUtils').then(({ scrollToElement }) => {
-      // Use native smooth scroll for all platforms - no need to disable CSS
-      
       scrollToElement({
         elementId,
-        duration: 600, // Reduced from 800ms for faster scrolling
+        duration: 600,
         offset: -80
       })
     })
@@ -34,39 +32,46 @@ export default function ParallaxHero() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       const isMobile = window.innerWidth < 768
       
-      if (prefersReducedMotion) return
+      // Don't skip parallax for reduced motion - Windows users may have this enabled by default
+      // but still want the parallax effect for this portfolio experience
       
       // Adjust intensity based on device for optimal performance
       let intensity = isMobile ? 0.3 : 1
       
       // Apply parallax effects with enhanced GPU acceleration
       if (starsRef.current) {
-        starsRef.current.style.transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
+        const transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
+        starsRef.current.style.transform = transform
         starsRef.current.style.willChange = 'transform'
       }
       
       if (dragonRef.current) {
-        dragonRef.current.style.transform = `translate3d(0, ${scrollY * -1.25 * intensity}px, 0)`
+        const transform = `translate3d(0, ${scrollY * -1.25 * intensity}px, 0)`
+        dragonRef.current.style.transform = transform
         dragonRef.current.style.willChange = 'transform'
       }
       
       if (castleRef.current) {
-        castleRef.current.style.transform = `translate3d(0, ${scrollY * 0.75 * intensity}px, 0)`
+        const transform = `translate3d(0, ${scrollY * 0.75 * intensity}px, 0)`
+        castleRef.current.style.transform = transform
         castleRef.current.style.willChange = 'transform'
       }
       
       if (mountainRef.current) {
-        mountainRef.current.style.transform = `translate3d(0, ${scrollY * 0 * intensity}px, 0)`
+        const transform = `translate3d(0, 0, 0)` // Mountain stays fixed
+        mountainRef.current.style.transform = transform
         mountainRef.current.style.willChange = 'transform'
       }
       
       if (textRef.current) {
-        textRef.current.style.transform = `translate3d(${scrollY * 4 * intensity}px, ${scrollY * 1.5 * intensity}px, 0)`
+        const transform = `translate3d(${scrollY * 4 * intensity}px, ${scrollY * 1.5 * intensity}px, 0)`
+        textRef.current.style.transform = transform
         textRef.current.style.willChange = 'transform'
       }
       
       if (ctaRef.current) {
-        ctaRef.current.style.transform = `translate3d(0, ${scrollY * 1.5 * intensity}px, 0)`
+        const transform = `translate3d(0, ${scrollY * 1.5 * intensity}px, 0)`
+        ctaRef.current.style.transform = transform
         ctaRef.current.style.willChange = 'transform'
       }
 
@@ -74,10 +79,8 @@ export default function ParallaxHero() {
     }
 
     const handleScroll = () => {
-      // Now that we're using custom scroll animation instead of native smooth scroll,
-      // scroll events will fire consistently during animations on all platforms
+      // Custom scroll animation ensures scroll events fire consistently during animations
       const scrollY = window.scrollY
-      console.log('Parallax scroll event fired, scrollY:', scrollY)
 
       if (!ticking) {
         // Use requestAnimationFrame for smoother animations across all platforms

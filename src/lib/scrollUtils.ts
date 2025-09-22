@@ -49,25 +49,14 @@ export const isWindows = (): boolean => {
 // Custom scroll to position with consistent animation
 export const scrollToPosition = ({ 
   target, 
-  duration = 600, // Reduced from 800ms to 600ms for faster scrolling
+  duration = 600,
   onComplete 
 }: ScrollToOptions): void => {
-  console.log('scrollToPosition called with target:', target, 'duration:', duration)
-  
-  // Check for reduced motion preference - but allow override for essential functionality
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  
-  // Always use smooth scrolling for this portfolio since it's essential for the user experience
-  // Users can disable JavaScript if they truly need no motion
-  console.log('Reduced motion preference detected:', prefersReducedMotion, '- but using smooth scroll anyway for core functionality')
-
   // Use custom animation for all platforms to ensure scroll events continue firing
   // This is crucial for parallax effects to work during scroll animations
   const startPosition = window.pageYOffset
   const distance = target - startPosition
   const startTime = performance.now()
-  
-  console.log('Starting custom scroll animation from', startPosition, 'to', target, 'distance:', distance)
 
   const animateScroll = (currentTime: number) => {
     const elapsed = currentTime - startTime
@@ -81,7 +70,6 @@ export const scrollToPosition = ({
     if (progress < 1) {
       requestAnimationFrame(animateScroll)
     } else {
-      console.log('Scroll animation completed')
       onComplete?.()
     }
   }
@@ -93,7 +81,7 @@ export const scrollToPosition = ({
 export const scrollToTop = (duration?: number, onComplete?: () => void): void => {
   scrollToPosition({ 
     target: 0, 
-    duration: duration || 600, // Reduced from 800ms to 600ms for faster scrolling
+    duration: duration || 600,
     onComplete 
   })
 }
@@ -101,7 +89,7 @@ export const scrollToTop = (duration?: number, onComplete?: () => void): void =>
 // Scroll to element with offset support
 export const scrollToElement = ({ 
   elementId, 
-  duration = 600, // Reduced from 800ms to 600ms for faster scrolling
+  duration = 600,
   offset = -80, 
   onComplete 
 }: ScrollToElementOptions): void => {
@@ -124,7 +112,6 @@ export const scrollToElement = ({
 
 // Utility to temporarily disable CSS smooth scroll during custom animations
 export const disableCSSSmootScroll = (): (() => void) => {
-  // Since we're using native smooth scroll for all platforms, no need to disable CSS
-  // Return no-op cleanup function
+  // Return no-op cleanup function since we handle scroll behavior in CSS
   return () => {}
 }

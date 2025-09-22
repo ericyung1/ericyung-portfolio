@@ -18,18 +18,15 @@ export default function Header() {
   }, [])
 
   const handleScrollToElement = (elementId: string) => {
-    console.log('Header navigation clicked, elementId:', elementId, 'isScrolling:', isScrolling)
-    
     if (isScrolling) return // Prevent multiple clicks during scroll
     
     setIsScrolling(true)
     
     scrollToElement({ 
       elementId, 
-      duration: 600, // Reduced from 800ms for faster scrolling
+      duration: 600,
       offset: -80, // Account for fixed header
       onComplete: () => {
-        console.log('Header scroll completed')
         setIsScrolling(false)
         setIsMobileMenuOpen(false) // Close mobile menu after clicking
       }
@@ -41,7 +38,7 @@ export default function Header() {
     
     setIsScrolling(true)
     
-    scrollToTop(600, () => { // Reduced from 800ms for faster scrolling
+    scrollToTop(600, () => {
       setIsScrolling(false)
       setIsMobileMenuOpen(false)
     })
