@@ -38,6 +38,14 @@ export const isMac = (): boolean => {
   return userAgent.includes('mac') || userAgent.includes('darwin')
 }
 
+// Detect Windows system
+export const isWindows = (): boolean => {
+  if (typeof window === 'undefined') return false
+  
+  const userAgent = navigator.userAgent.toLowerCase()
+  return userAgent.includes('windows') || userAgent.includes('win32') || userAgent.includes('win64')
+}
+
 // Custom scroll to position with consistent animation
 export const scrollToPosition = ({ 
   target, 
@@ -50,6 +58,14 @@ export const scrollToPosition = ({
   if (prefersReducedMotion) {
     window.scrollTo({ top: target, behavior: 'auto' })
     onComplete?.()
+    return
+  }
+
+  // On Windows, use native smooth scroll to avoid conflicts
+  if (isWindows()) {
+    window.scrollTo({ top: target, behavior: 'smooth' })
+    // Approximate completion time for callback
+    setTimeout(() => onComplete?.(), duration)
     return
   }
 
@@ -117,7 +133,12 @@ export const disableCSSSmootScroll = (): (() => void) => {
   const htmlElement = document.documentElement
   const originalScrollBehavior = htmlElement.style.scrollBehavior
   
-  // Add class to indicate custom scroll is active
+  // On Windows, don't interfere with CSS smooth scroll - let it work naturally
+  if (isWindows()) {
+    return () => {} // No-op cleanup function
+  }
+  
+  // Add class to indicate custom scroll is active (Mac/mobile only)
   htmlElement.classList.add('custom-scroll-active')
   htmlElement.style.scrollBehavior = 'auto'
   

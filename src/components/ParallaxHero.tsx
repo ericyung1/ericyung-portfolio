@@ -63,9 +63,10 @@ export default function ParallaxHero() {
       // Adjust intensity based on device and OS
       let intensity = isMobile ? 0.3 : 1
       
-      // Reduce intensity on Windows for better performance
+      // Keep full intensity on Windows since we're not using custom scroll conflicts
+      // Only reduce on Windows if there are actual performance issues
       if (isWindows) {
-        intensity *= 0.7
+        intensity *= 1.0 // Full intensity for Windows
       }
 
       // Apply parallax effects with enhanced GPU acceleration
