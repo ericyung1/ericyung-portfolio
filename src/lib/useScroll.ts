@@ -1,6 +1,6 @@
 // Custom React hook for consistent scrolling behavior across the app
 import { useState, useCallback } from 'react'
-import { scrollToTop, scrollToElement, disableCSSSmootScroll } from './scrollUtils'
+import { scrollToTop, scrollToElement } from './scrollUtils'
 
 interface UseScrollReturn {
   isScrolling: boolean
@@ -15,11 +15,9 @@ export const useScroll = (): UseScrollReturn => {
     if (isScrolling) return
     
     setIsScrolling(true)
-    const restoreCSS = disableCSSSmootScroll()
     
     scrollToTop(duration, () => {
       setIsScrolling(false)
-      restoreCSS()
     })
   }, [isScrolling])
 
@@ -27,7 +25,6 @@ export const useScroll = (): UseScrollReturn => {
     if (isScrolling) return
     
     setIsScrolling(true)
-    const restoreCSS = disableCSSSmootScroll()
     
     scrollToElement({
       elementId,
@@ -35,7 +32,6 @@ export const useScroll = (): UseScrollReturn => {
       offset,
       onComplete: () => {
         setIsScrolling(false)
-        restoreCSS()
       }
     })
   }, [isScrolling])

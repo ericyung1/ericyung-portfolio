@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { scrollToTop as customScrollToTop, disableCSSSmootScroll } from '@/lib/scrollUtils'
+import { scrollToTop as customScrollToTop } from '@/lib/scrollUtils'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
@@ -26,12 +26,8 @@ export default function ScrollToTop() {
     
     setIsScrolling(true)
     
-    // Temporarily disable CSS smooth scroll to prevent conflicts
-    const restoreCSS = disableCSSSmootScroll()
-    
     customScrollToTop(800, () => {
       setIsScrolling(false)
-      restoreCSS() // Restore CSS smooth scroll behavior
     })
   }
 

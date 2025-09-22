@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { scrollToTop, scrollToElement, disableCSSSmootScroll } from '@/lib/scrollUtils'
+import { scrollToTop, scrollToElement } from '@/lib/scrollUtils'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -22,16 +22,12 @@ export default function Header() {
     
     setIsScrolling(true)
     
-    // Temporarily disable CSS smooth scroll to prevent conflicts
-    const restoreCSS = disableCSSSmootScroll()
-    
     scrollToElement({ 
       elementId, 
       duration: 800,
       offset: -80, // Account for fixed header
       onComplete: () => {
         setIsScrolling(false)
-        restoreCSS()
         setIsMobileMenuOpen(false) // Close mobile menu after clicking
       }
     })
@@ -42,11 +38,8 @@ export default function Header() {
     
     setIsScrolling(true)
     
-    const restoreCSS = disableCSSSmootScroll()
-    
     scrollToTop(800, () => {
       setIsScrolling(false)
-      restoreCSS()
       setIsMobileMenuOpen(false)
     })
   }

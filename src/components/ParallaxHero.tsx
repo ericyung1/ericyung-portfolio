@@ -15,22 +15,13 @@ export default function ParallaxHero() {
   // Custom smooth scroll function that works harmoniously with parallax
   const smoothScrollTo = (elementId: string) => {
     // Import the scroll utilities dynamically to avoid SSR issues
-    import('@/lib/scrollUtils').then(({ scrollToElement, disableCSSSmootScroll }) => {
-      // No longer disable parallax - let it work during scroll for better visual experience
-      
-      // Temporarily disable CSS smooth scroll to prevent conflicts with custom animation
-      const restoreCSS = disableCSSSmootScroll()
+    import('@/lib/scrollUtils').then(({ scrollToElement }) => {
+      // Use native smooth scroll for all platforms - no need to disable CSS
       
       scrollToElement({
         elementId,
         duration: 800,
-        offset: -80,
-        onComplete: () => {
-          // Restore CSS smooth scroll behavior
-          setTimeout(() => {
-            restoreCSS()
-          }, 100)
-        }
+        offset: -80
       })
     })
   }
@@ -52,10 +43,8 @@ export default function ParallaxHero() {
 
       // Apply parallax effects with enhanced GPU acceleration
       if (starsRef.current) {
-        const transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
-        starsRef.current.style.transform = transform
+        starsRef.current.style.transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
         starsRef.current.style.willChange = 'transform'
-        console.log('Stars transform applied:', transform, 'Intensity:', intensity)
       }
       
       if (dragonRef.current) {
@@ -90,11 +79,6 @@ export default function ParallaxHero() {
     // Allow parallax effects to continue during smooth scrolling for better visual experience
     // The parallax and smooth scroll animations will work together harmoniously
     const scrollY = window.scrollY
-
-    // Debug logging to understand Windows behavior
-    if (typeof window !== 'undefined') {
-      console.log('Scroll event fired, scrollY:', scrollY, 'User Agent:', navigator.userAgent.includes('Windows') ? 'Windows' : 'Other')
-    }
 
     if (!ticking) {
       // Use requestAnimationFrame for smoother animations across all platforms
