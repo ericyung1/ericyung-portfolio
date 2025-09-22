@@ -10,29 +10,15 @@ export default function ParallaxHero() {
   const dragonRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
-  const isScrollingRef = useRef(false)
   const animationFrameRef = useRef<number | null>(null)
-  const [isWindows, setIsWindows] = useState(false)
 
-  // Detect Windows OS for platform-specific optimizations
-  useEffect(() => {
-    const detectWindows = () => {
-      const userAgent = navigator.userAgent.toLowerCase()
-      const isWindowsOS = userAgent.includes('windows') || userAgent.includes('win32') || userAgent.includes('win64')
-      setIsWindows(isWindowsOS)
-    }
-    
-    detectWindows()
-  }, [])
-
-  // Custom smooth scroll function that doesn't conflict with parallax
+  // Custom smooth scroll function that works harmoniously with parallax
   const smoothScrollTo = (elementId: string) => {
     // Import the scroll utilities dynamically to avoid SSR issues
     import('@/lib/scrollUtils').then(({ scrollToElement, disableCSSSmootScroll }) => {
-      // Temporarily disable parallax during smooth scroll
-      isScrollingRef.current = true
+      // No longer disable parallax - let it work during scroll for better visual experience
       
-      // Temporarily disable CSS smooth scroll to prevent conflicts
+      // Temporarily disable CSS smooth scroll to prevent conflicts with custom animation
       const restoreCSS = disableCSSSmootScroll()
       
       scrollToElement({
@@ -40,9 +26,8 @@ export default function ParallaxHero() {
         duration: 800,
         offset: -80,
         onComplete: () => {
-          // Re-enable parallax after scroll completes
+          // Restore CSS smooth scroll behavior
           setTimeout(() => {
-            isScrollingRef.current = false
             restoreCSS()
           }, 100)
         }
@@ -60,14 +45,10 @@ export default function ParallaxHero() {
       
       if (prefersReducedMotion) return
       
-      // Adjust intensity based on device and OS
+      // Adjust intensity based on device for optimal performance
       let intensity = isMobile ? 0.3 : 1
       
-      // Keep full intensity on Windows since we're not using custom scroll conflicts
-      // Only reduce on Windows if there are actual performance issues
-      if (isWindows) {
-        intensity *= 1.0 // Full intensity for Windows
-      }
+      // Use consistent intensity across all platforms for uniform experience
 
       // Apply parallax effects with enhanced GPU acceleration
       if (starsRef.current) {
@@ -103,18 +84,17 @@ export default function ParallaxHero() {
       ticking = false
     }
 
-    const handleScroll = () => {
-      // Skip parallax updates during smooth scrolling to prevent stuttering
-      if (isScrollingRef.current) return
-      
-      const scrollY = window.scrollY
+  const handleScroll = () => {
+    // Allow parallax effects to continue during smooth scrolling for better visual experience
+    // The parallax and smooth scroll animations will work together harmoniously
+    const scrollY = window.scrollY
 
-      if (!ticking) {
-        // Use requestAnimationFrame for smoother animations, especially on Windows
-        animationFrameRef.current = requestAnimationFrame(() => updateParallax(scrollY))
-        ticking = true
-      }
+    if (!ticking) {
+      // Use requestAnimationFrame for smoother animations across all platforms
+      animationFrameRef.current = requestAnimationFrame(() => updateParallax(scrollY))
+      ticking = true
     }
+  }
 
     // Use passive listener for better performance
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -125,7 +105,7 @@ export default function ParallaxHero() {
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [isWindows])
+  }, [])
 
   return (
     <section className="relative w-full h-screen flex justify-center items-center overflow-hidden bg-gradient-to-b from-teal-primary to-teal-secondary">
