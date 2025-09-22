@@ -39,8 +39,6 @@ export default function ParallaxHero() {
       // Adjust intensity based on device for optimal performance
       let intensity = isMobile ? 0.3 : 1
       
-      // Use consistent intensity across all platforms for uniform experience
-
       // Apply parallax effects with enhanced GPU acceleration
       if (starsRef.current) {
         starsRef.current.style.transform = `translate3d(${scrollY * 0.25 * intensity}px, 0, 0)`
@@ -75,17 +73,17 @@ export default function ParallaxHero() {
       ticking = false
     }
 
-  const handleScroll = () => {
-    // Allow parallax effects to continue during smooth scrolling for better visual experience
-    // The parallax and smooth scroll animations will work together harmoniously
-    const scrollY = window.scrollY
+    const handleScroll = () => {
+      // Now that we're using custom scroll animation instead of native smooth scroll,
+      // scroll events will fire consistently during animations on all platforms
+      const scrollY = window.scrollY
 
-    if (!ticking) {
-      // Use requestAnimationFrame for smoother animations across all platforms
-      animationFrameRef.current = requestAnimationFrame(() => updateParallax(scrollY))
-      ticking = true
+      if (!ticking) {
+        // Use requestAnimationFrame for smoother animations across all platforms
+        animationFrameRef.current = requestAnimationFrame(() => updateParallax(scrollY))
+        ticking = true
+      }
     }
-  }
 
     // Use passive listener for better performance
     window.addEventListener('scroll', handleScroll, { passive: true })

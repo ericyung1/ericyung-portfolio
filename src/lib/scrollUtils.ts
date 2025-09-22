@@ -61,22 +61,15 @@ export const scrollToPosition = ({
     return
   }
 
-  // Use native smooth scroll for all platforms - simpler and more reliable
-  window.scrollTo({ top: target, behavior: 'smooth' })
-  // Approximate completion time for callback
-  setTimeout(() => onComplete?.(), duration)
-  return
-
-  // Keeping this code commented out in case we need custom animation later
-  /*
+  // Use custom animation for all platforms to ensure scroll events continue firing
+  // This is crucial for parallax effects to work during scroll animations
   const startPosition = window.pageYOffset
   const distance = target - startPosition
   const startTime = performance.now()
-  const adjustedDuration = duration
 
   const animateScroll = (currentTime: number) => {
     const elapsed = currentTime - startTime
-    const progress = Math.min(elapsed / adjustedDuration, 1)
+    const progress = Math.min(elapsed / duration, 1)
     
     const easedProgress = easeInOutQuad(progress)
     const currentPosition = startPosition + (distance * easedProgress)
@@ -91,7 +84,6 @@ export const scrollToPosition = ({
   }
 
   requestAnimationFrame(animateScroll)
-  */
 }
 
 // Scroll to top with platform-specific optimizations

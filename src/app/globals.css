@@ -17,23 +17,15 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Default smooth scroll for all browsers */
+  /* Remove default smooth scroll to prevent conflicts with JS scrolling */
+  scroll-behavior: auto;
   scroll-padding-top: 2rem; /* Adds some breathing room when scrolling to sections */
 }
 
-/* Only disable CSS smooth scroll when using custom scroll utilities (Mac/mobile) */
-@media (prefers-reduced-motion: no-preference) {
-  /* Disable smooth scroll only when custom scroll is active (Mac/mobile) */
-  html.custom-scroll-active {
-    scroll-behavior: auto;
-  }
-  
-  /* Additional Safari-specific handling */
-  @supports (-webkit-touch-callout: none) {
-    /* This targets WebKit browsers (Safari) */
-    html.custom-scroll-active {
-      scroll-behavior: auto;
-    }
+/* Only enable CSS smooth scroll for reduced motion users as fallback */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
