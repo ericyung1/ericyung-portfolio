@@ -18,18 +18,8 @@ export default function ParallaxHero() {
   useEffect(() => {
     const detectWindows = () => {
       const userAgent = navigator.userAgent.toLowerCase()
-      const platform = navigator.platform?.toLowerCase() || ''
-      const isWindowsOS = userAgent.includes('windows') || 
-                         userAgent.includes('win32') || 
-                         userAgent.includes('win64') ||
-                         platform.includes('win') ||
-                         platform.includes('windows')
+      const isWindowsOS = userAgent.includes('windows') || userAgent.includes('win32') || userAgent.includes('win64')
       setIsWindows(isWindowsOS)
-      
-      // Debug log for testing
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Platform detection:', { userAgent, platform, isWindows: isWindowsOS })
-      }
     }
     
     detectWindows()
@@ -73,10 +63,9 @@ export default function ParallaxHero() {
       // Adjust intensity based on device and OS
       let intensity = isMobile ? 0.3 : 1
       
-      // Keep full intensity on Windows for visible parallax effect
-      // Only reduce slightly if performance issues occur
+      // Reduce intensity on Windows for better performance
       if (isWindows) {
-        intensity *= 0.9 // Minimal reduction instead of 0.7
+        intensity *= 0.7
       }
 
       // Apply parallax effects with enhanced GPU acceleration
