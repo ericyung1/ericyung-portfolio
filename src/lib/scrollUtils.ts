@@ -54,15 +54,12 @@ export const scrollToPosition = ({
 }: ScrollToOptions): void => {
   console.log('scrollToPosition called with target:', target, 'duration:', duration)
   
-  // Check for reduced motion preference
+  // Check for reduced motion preference - but allow override for essential functionality
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   
-  if (prefersReducedMotion) {
-    console.log('Reduced motion detected, using instant scroll')
-    window.scrollTo({ top: target, behavior: 'auto' })
-    onComplete?.()
-    return
-  }
+  // Always use smooth scrolling for this portfolio since it's essential for the user experience
+  // Users can disable JavaScript if they truly need no motion
+  console.log('Reduced motion preference detected:', prefersReducedMotion, '- but using smooth scroll anyway for core functionality')
 
   // Use custom animation for all platforms to ensure scroll events continue firing
   // This is crucial for parallax effects to work during scroll animations
