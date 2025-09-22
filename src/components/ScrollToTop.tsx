@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { scrollToTop as customScrollToTop, disableCSSSmootScroll } from '@/lib/scrollUtils'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -19,19 +21,27 @@ export default function ScrollToTop() {
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  const handleScrollToTop = () => {
+    if (isScrolling) return // Prevent multiple clicks during scroll
+    
+    setIsScrolling(true)
+    
+    // Temporarily disable CSS smooth scroll to prevent conflicts
+    const restoreCSS = disableCSSSmootScroll()
+    
+    customScrollToTop(800, () => {
+      setIsScrolling(false)
+      restoreCSS() // Restore CSS smooth scroll behavior
     })
   }
 
   return (
     <button
-      onClick={scrollToTop}
+      onClick={handleScrollToTop}
+      disabled={isScrolling}
       className={`fixed bottom-8 right-8 z-[9999] p-3 bg-teal-primary hover:bg-teal-secondary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-      }`}
+      } ${isScrolling ? 'opacity-75 cursor-not-allowed' : ''}`}
       aria-label="Scroll to top"
     >
       {/* Up arrow icon */}

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px', // Extra small devices
+      },
       colors: {
         'teal-primary': '#208599',
         'teal-secondary': '#8ae4da',

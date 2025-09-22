@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { scrollToTop, scrollToElement, disableCSSSmootScroll } from '@/lib/scrollUtils'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,17 +17,38 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const smoothScrollTo = (elementId: string) => {
-    const element = document.querySelector(elementId) as HTMLElement
-    if (!element) return
-
-    element.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    })
+  const handleScrollToElement = (elementId: string) => {
+    if (isScrolling) return // Prevent multiple clicks during scroll
     
-    // Close mobile menu after clicking
-    setIsMobileMenuOpen(false)
+    setIsScrolling(true)
+    
+    // Temporarily disable CSS smooth scroll to prevent conflicts
+    const restoreCSS = disableCSSSmootScroll()
+    
+    scrollToElement({ 
+      elementId, 
+      duration: 800,
+      offset: -80, // Account for fixed header
+      onComplete: () => {
+        setIsScrolling(false)
+        restoreCSS()
+        setIsMobileMenuOpen(false) // Close mobile menu after clicking
+      }
+    })
+  }
+
+  const handleScrollToTop = () => {
+    if (isScrolling) return
+    
+    setIsScrolling(true)
+    
+    const restoreCSS = disableCSSSmootScroll()
+    
+    scrollToTop(800, () => {
+      setIsScrolling(false)
+      restoreCSS()
+      setIsMobileMenuOpen(false)
+    })
   }
 
   const navItems = [
@@ -52,9 +75,11 @@ export default function Header() {
             href="#"
             onClick={(e) => {
               e.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
+              handleScrollToTop()
             }}
-            className="text-white font-bold text-2xl uppercase tracking-wider hover:text-teal-secondary transition-colors duration-300 cursor-pointer"
+            className={`text-white font-bold text-2xl uppercase tracking-wider hover:text-teal-secondary transition-colors duration-300 cursor-pointer ${
+              isScrolling ? 'opacity-75 cursor-not-allowed' : ''
+            }`}
           >
             Eric Yung
           </a>
@@ -68,12 +93,14 @@ export default function Header() {
                 onClick={(e) => {
                   e.preventDefault()
                   if (item.href === '#') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                    handleScrollToTop()
                   } else {
-                    smoothScrollTo(item.href)
+                    handleScrollToElement(item.href)
                   }
                 }}
-                className="text-white hover:text-teal-secondary transition-colors duration-300 px-3 py-2 rounded-full hover:bg-white/10 cursor-pointer"
+                className={`text-white hover:text-teal-secondary transition-colors duration-300 px-3 py-2 rounded-full hover:bg-white/10 cursor-pointer ${
+                  isScrolling ? 'opacity-75 cursor-not-allowed' : ''
+                }`}
               >
                 {item.name}
               </a>
@@ -120,12 +147,14 @@ export default function Header() {
                 onClick={(e) => {
                   e.preventDefault()
                   if (item.href === '#') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                    handleScrollToTop()
                   } else {
-                    smoothScrollTo(item.href)
+                    handleScrollToElement(item.href)
                   }
                 }}
-                className="text-white hover:text-teal-secondary transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-white/10 cursor-pointer"
+                className={`text-white hover:text-teal-secondary transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-white/10 cursor-pointer ${
+                  isScrolling ? 'opacity-75 cursor-not-allowed' : ''
+                }`}
               >
                 {item.name}
               </a>
