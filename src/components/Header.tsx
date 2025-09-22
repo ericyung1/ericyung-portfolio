@@ -26,7 +26,7 @@ export default function Header() {
     
     scrollToElement({ 
       elementId, 
-      duration: 800,
+      duration: 600, // Reduced from 800ms for faster scrolling
       offset: -80, // Account for fixed header
       onComplete: () => {
         console.log('Header scroll completed')
@@ -41,7 +41,7 @@ export default function Header() {
     
     setIsScrolling(true)
     
-    scrollToTop(800, () => {
+    scrollToTop(600, () => { // Reduced from 800ms for faster scrolling
       setIsScrolling(false)
       setIsMobileMenuOpen(false)
     })

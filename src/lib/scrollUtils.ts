@@ -49,7 +49,7 @@ export const isWindows = (): boolean => {
 // Custom scroll to position with consistent animation
 export const scrollToPosition = ({ 
   target, 
-  duration = 800, 
+  duration = 600, // Reduced from 800ms to 600ms for faster scrolling
   onComplete 
 }: ScrollToOptions): void => {
   console.log('scrollToPosition called with target:', target, 'duration:', duration)
@@ -93,7 +93,7 @@ export const scrollToPosition = ({
 export const scrollToTop = (duration?: number, onComplete?: () => void): void => {
   scrollToPosition({ 
     target: 0, 
-    duration: duration || 800, 
+    duration: duration || 600, // Reduced from 800ms to 600ms for faster scrolling
     onComplete 
   })
 }
@@ -101,7 +101,7 @@ export const scrollToTop = (duration?: number, onComplete?: () => void): void =>
 // Scroll to element with offset support
 export const scrollToElement = ({ 
   elementId, 
-  duration = 800, 
+  duration = 600, // Reduced from 800ms to 600ms for faster scrolling
   offset = -80, 
   onComplete 
 }: ScrollToElementOptions): void => {

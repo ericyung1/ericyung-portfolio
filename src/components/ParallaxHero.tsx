@@ -20,7 +20,7 @@ export default function ParallaxHero() {
       
       scrollToElement({
         elementId,
-        duration: 800,
+        duration: 600, // Reduced from 800ms for faster scrolling
         offset: -80
       })
     })

@@ -26,7 +26,7 @@ export default function ScrollToTop() {
     
     setIsScrolling(true)
     
-    customScrollToTop(800, () => {
+    customScrollToTop(600, () => { // Reduced from 800ms for faster scrolling
       setIsScrolling(false)
     })
   }
