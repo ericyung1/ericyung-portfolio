@@ -61,15 +61,21 @@ export const scrollToPosition = ({
     return
   }
 
-  // Use custom scroll animation for all platforms to ensure consistent behavior
-  // This enables smooth scrolling with parallax effects on all operating systems
+  // Windows: Use native smooth scroll which properly fires scroll events for parallax
+  if (isWindows()) {
+    window.scrollTo({ top: target, behavior: 'smooth' })
+    // Approximate completion time for callback
+    setTimeout(() => onComplete?.(), duration)
+    return
+  }
 
+  // Mac/other platforms: Use custom scroll animation
   const startPosition = window.pageYOffset
   const distance = target - startPosition
   const startTime = performance.now()
 
-  // Use consistent duration across all platforms for uniform experience
-  const adjustedDuration = duration
+  // Use shorter duration on Mac to counteract Safari's momentum
+  const adjustedDuration = isMac() ? duration * 0.8 : duration
 
   const animateScroll = (currentTime: number) => {
     const elapsed = currentTime - startTime
@@ -128,8 +134,12 @@ export const disableCSSSmootScroll = (): (() => void) => {
   const htmlElement = document.documentElement
   const originalScrollBehavior = htmlElement.style.scrollBehavior
   
-  // Disable CSS smooth scroll for all platforms during custom animations
-  // This ensures our custom scroll animation works consistently everywhere
+  // On Windows, don't interfere with CSS smooth scroll - let native behavior work
+  if (isWindows()) {
+    return () => {} // No-op cleanup function for Windows
+  }
+  
+  // Mac/other platforms: Disable CSS smooth scroll during custom animations
   htmlElement.classList.add('custom-scroll-active')
   htmlElement.style.scrollBehavior = 'auto'
   
