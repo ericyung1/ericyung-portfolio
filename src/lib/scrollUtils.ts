@@ -52,10 +52,13 @@ export const scrollToPosition = ({
   duration = 800, 
   onComplete 
 }: ScrollToOptions): void => {
+  console.log('scrollToPosition called with target:', target, 'duration:', duration)
+  
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   
   if (prefersReducedMotion) {
+    console.log('Reduced motion detected, using instant scroll')
     window.scrollTo({ top: target, behavior: 'auto' })
     onComplete?.()
     return
@@ -66,6 +69,8 @@ export const scrollToPosition = ({
   const startPosition = window.pageYOffset
   const distance = target - startPosition
   const startTime = performance.now()
+  
+  console.log('Starting custom scroll animation from', startPosition, 'to', target, 'distance:', distance)
 
   const animateScroll = (currentTime: number) => {
     const elapsed = currentTime - startTime
@@ -79,6 +84,7 @@ export const scrollToPosition = ({
     if (progress < 1) {
       requestAnimationFrame(animateScroll)
     } else {
+      console.log('Scroll animation completed')
       onComplete?.()
     }
   }

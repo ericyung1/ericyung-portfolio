@@ -77,6 +77,7 @@ export default function ParallaxHero() {
       // Now that we're using custom scroll animation instead of native smooth scroll,
       // scroll events will fire consistently during animations on all platforms
       const scrollY = window.scrollY
+      console.log('Parallax scroll event fired, scrollY:', scrollY)
 
       if (!ticking) {
         // Use requestAnimationFrame for smoother animations across all platforms
